@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="section-header col-md-12">
+                        <h2>Kitob haqida</h2>
+                        <span></span>
+                    </div> <!-- /.section-header -->
+                </div> <!-- /.row -->
+
+                <div class="row">
+                    <div class="blog-image col-md-12">
+                        <img src="{{uzb.imageURL}}" alt="Blog 1">
+                    </div> <!-- /.blog-image -->
+                    <div class="blog-info col-md-12">
+                        <div class="box-content">
+                            <h2 class="blog-title">{{uzb.title}}</h2>
+                            <span class="blog-title"></span>
+                            <p>{{uzb.body}}</p>
+                               
+                                    {% if uzb.free %}Kitob bo'sh{% else %}Kitob bo'shash vaqti:{{uzb.b_date}}{% endif %}
+                                
+                        </div>
+                        {% if uzb.free %}<a href={% url 'books:uzbbuy' %}>+olish</a>{% endif %}
+                        
+{% endblock content %}

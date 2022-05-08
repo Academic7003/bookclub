@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="content-wrapper">
+	<div class="inner-container container">
+		<div class="row">
+			<div class="section-header col-md-12">
+				<h2>Русские книги</h2>
+				<span></span>
+			</div> <!-- /.section-header -->
+		</div> <!-- /.row -->
+		{% for uzb in rus_list %}
+		<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+			<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+				<figure>
+					<img src={{uzb.imageURL}} alt="Image" class="img-fluid tm-gallery-img" height=240 width=160 />
+					<figcaption>
+						<h4 class="tm-gallery-title">{{uzb.title}}</h4>
+						<p class="tm-gallery-description">{{uzb.body}}</p>
+						{% if uzb.free %}<p class="tm-gallery-price"  >Kitob bo'sh</p>
+						{% else %}<p class="tm-gallery-price">bo'shash vaqti:{{uzb.b_date}}</p>
+						{% endif %}
+					</figcaption>
+				</figure>
+			</article>
+
+		</div> <!-- gallery page 1 -->
+		
+		{% endfor %}
+		<div class="row">
+			<div class="col-md-12">
+			
+			</div> <!-- /.col-md-12 -->
+		</div> <!-- /.row -->
+	</div> <!-- /.inner-content -->
+</div> <!-- /.content-wrapper -->
+{% endblock content %}	

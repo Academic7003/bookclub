@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="section-header col-md-12">
+                        <h2>About the book</h2>
+                        <span></span>
+                    </div> <!-- /.section-header -->
+                </div> <!-- /.row -->
+
+                <div class="row">
+                    <div class="blog-image col-md-12">
+                        <img src="{{eng.imageURL}}" alt="Blog 1" max-height=100>
+                    </div> <!-- /.blog-image -->
+                    <div class="blog-info col-md-12">
+                        <div class="box-content">
+                            <h2 class="blog-title">{{eng.title}}</h2>
+                            <span class="blog-meta"></span>
+                            <p>{{eng.body}}</p>
+                                
+                                    <h6 >{% if eng.free %}the book is empty{% else %}idle time:{{eng.b_date}}{% endif %}</h6>
+                                
+                                    {% if eng.free %}<a href="books:engbuy">read</a>{% endif %}
+                        </div>
+
+
+
+{% endblock content %} 

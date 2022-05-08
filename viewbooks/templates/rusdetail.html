@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="section-header col-md-12">
+                        <h2>О книге</h2>
+                        <span></span>
+                    </div> <!-- /.section-header -->
+                </div> <!-- /.row -->
+
+                <div class="row">
+                    <div class="blog-image col-md-12">
+                        <img src="{{rus.imageURL}}" alt="Blog 1">
+                    </div> <!-- /.blog-image -->
+                    <div class="blog-info col-md-12">
+                        <div class="box-content">
+                            <h2 class="blog-title">{{rus.title}}</h2>
+                            <span class="blog-meta"></span>
+                            <p>{{rus.body}}</p>
+                                
+                                    {% if rus.free %}можете читать{% else %}Можете читать с:{{rus.b_date}}{% endif %}
+                                
+                        </div>
+{% if rus.free  %}
+                        <a href={% url 'books:engbuy' %}>+взять</a>{% endif %}
+
+{% endblock content %}
