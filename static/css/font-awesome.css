@@ -634,6 +634,16 @@
 .fa-facebook:before {
   content: "\f09a";
 }
+.fa-telegram:before {
+  content: "\f2c6";
+}
+li:before {
+  content: "\f2c6"; /* добавляем иконку дом */
+  font-family: FontAwesome;
+  color: #aaaaaa;
+  margin-right: 10px; 
+  }
+  
 .fa-github:before {
   content: "\f09b";
 }
