@@ -12,6 +12,7 @@
 			</div> <!-- /.section-header -->
 		</div> <!-- /.row -->
 		{% for uzb in rus_list %}
+	<a href= {% url 'books:rusdetail' uzb.id %}>
 		<div id="tm-gallery-page-pizza" class="tm-gallery-page">
 			<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 				<figure>
@@ -27,7 +28,7 @@
 			</article>
 
 		</div> <!-- gallery page 1 -->
-		
+	</a>
 		{% endfor %}
 		<div class="row">
 			<div class="col-md-12">

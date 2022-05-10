@@ -2,8 +2,20 @@ from django.forms import ModelForm
 from viewbooks.models import *
 
 
-class BuyerForm(ModelForm):
+class UzBuyerForm(ModelForm):
 
     class Meta:
-        model = BuyModel
+        model = UzBuyModel
+        fields = '__all__'
+
+class RusBuyerForm(ModelForm):
+
+    class Meta:
+        model = RusBuyModel
+        fields = '__all__'
+
+class EngBuyerForm(ModelForm):
+
+    class Meta:
+        model = EngBuyModel
         fields = '__all__'

@@ -44,7 +44,7 @@ def uzbbuy(request):
 
     if request.method == 'POST':
 
-        form = BuyerForm(request.POST)
+        form = UzBuyerForm(request.POST)
 
         if form.is_valid():
             # Сохранение формы
@@ -53,7 +53,7 @@ def uzbbuy(request):
             # Редирект на ту же страницу
             return HttpResponseRedirect('uzb')
     else:
-            form = BuyerForm()
+            form = UzBuyerForm()
             names = UzbBooksModel.objects.all()
 
 
@@ -66,7 +66,7 @@ def rusbuy(request):
 
     if request.method == 'POST':
 
-        form = BuyerForm(request.POST)
+        form = RusBuyerForm(request.POST)
 
         if form.is_valid():
             # Сохранение формы
@@ -75,19 +75,19 @@ def rusbuy(request):
             # Редирект на ту же страницу
             return HttpResponseRedirect('rus')
     else:
-            form = BuyerForm()
+            form = RusBuyerForm()
             names = RusBooksModel.objects.all()
 
             
+    return render(request, 'rusbuy.html', {'form': form, 'names':names})
 
-    
-    return render(request, 'rusbuy.html', {'form': form, 'naames':names})
+
 
 def engbuy(request):
 
     if request.method == 'POST':
 
-        form = BuyerForm(request.POST)
+        form = EngBuyerForm(request.POST)
 
         if form.is_valid():
             # Сохранение формы
@@ -97,7 +97,7 @@ def engbuy(request):
             return HttpResponseRedirect('eng')
     else:
             
-            form = BuyerForm()
+            form = EngBuyerForm()
             names = EngBooksModel.objects.all()
 
     

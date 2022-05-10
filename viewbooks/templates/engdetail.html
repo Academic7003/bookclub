@@ -24,7 +24,7 @@
                                 
                                     <h6 >{% if eng.free %}the book is empty{% else %}idle time:{{eng.b_date}}{% endif %}</h6>
                                 
-                                    {% if eng.free %}<a href="books:engbuy">read</a>{% endif %}
+                                    {% if eng.free %}<a href="{% url 'books:engbuy' %}">read</a>{% endif %}
                         </div>
 
 

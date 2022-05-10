@@ -75,10 +75,26 @@ class EngBooksModel(models.Model):
     def __str__(self):
         return str(self.title)
 
-class BuyModel(models.Model):
+class UzBuyModel(models.Model):
     tel=models.PositiveBigIntegerField(name="telefon raqam:")
     adres=models.TextField(max_length=255, name="Manzil:")
     Kitob = models.ForeignKey(UzbBooksModel, on_delete=models.CASCADE , name="Kitob nomi:")
+
+    def __str__(self):
+        return str(self.id)
+
+class RusBuyModel(models.Model):
+    tel=models.PositiveBigIntegerField(name="ваш номер телефон номер:")
+    adres=models.TextField(max_length=255, name="Адрес:")
+    Kitob = models.ForeignKey(RusBooksModel, on_delete=models.CASCADE , name="Называния книги:")
+
+    def __str__(self):
+        return str(self.id)
+
+class EngBuyModel(models.Model):
+    tel=models.PositiveBigIntegerField(name="telephone number:")
+    adres=models.TextField(max_length=255, name="Address:")
+    Kitob = models.ForeignKey(EngBooksModel, on_delete=models.CASCADE , name="The book name:")
 
     def __str__(self):
         return str(self.id)
