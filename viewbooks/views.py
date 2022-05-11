@@ -38,6 +38,8 @@ class EngBooksDetailView(DetailView):
     template_name = 'engdetail.html'
     context_object_name = 'eng'
 
+class Onas(TemplateView):
+    template_name ="onas.html" 
 
 ###
 def uzbbuy(request):

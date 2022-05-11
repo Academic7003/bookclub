@@ -14,5 +14,6 @@ urlpatterns = [
     path('uzbbuy', uzbbuy, name='uzbbuy'),
     path('rusbuy', rusbuy, name='rusbuy'),
     path('engbuy', engbuy, name='engbuy'),
+    path('onas', Onas.as_view(), name='onas'),
 
 ]
