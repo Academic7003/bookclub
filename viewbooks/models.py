@@ -18,7 +18,7 @@ class UzbBooksModel(models.Model):
     body = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
-    free = models.NullBooleanField(null=True)
+    free = models.BooleanField()
 
 
 
@@ -40,7 +40,7 @@ class RusBooksModel(models.Model):
     body = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
-    free = models.NullBooleanField(null=True)
+    free = models.BooleanField()
 
 
 
@@ -61,7 +61,7 @@ class EngBooksModel(models.Model):
     body = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
-    free = models.NullBooleanField(null=True)
+    free = models.BooleanField()
 
     
     @property
