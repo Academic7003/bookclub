@@ -5,7 +5,7 @@ app_name = 'books'
 
 
 urlpatterns = [
-    path('uzb', UzBooksView.as_view(), name='uzb'),
+    path('', UzBooksView.as_view(), name='uzb'),
     path('rus', RusBooksView.as_view(), name='rus'),
     path('eng', EngBooksView.as_view(), name='eng'),
     path('uzdetail/<int:pk>', UzBooksDetailView.as_view(), name='uzdetail'),
