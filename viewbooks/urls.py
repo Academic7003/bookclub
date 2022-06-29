@@ -8,12 +8,9 @@ urlpatterns = [
     path('', UzBooksView.as_view(), name='uzb'),
     path('rus', RusBooksView.as_view(), name='rus'),
     path('eng', EngBooksView.as_view(), name='eng'),
-    path('uzdetail/<int:pk>', UzBooksDetailView.as_view(), name='uzdetail'),
-    path('rusdetail/<int:pk>', RusBooksDetailView.as_view(), name='rusdetail'),
-    path('engdetail/<int:pk>', EngBooksDetailView.as_view(), name='engdetail'),
-    path('uzbbuy', uzbbuy, name='uzbbuy'),
-    path('rusbuy', rusbuy, name='rusbuy'),
-    path('engbuy', engbuy, name='engbuy'),
+    path('uzdetail/<int:pk>', uzbbuy, name='uzdetail'),
+    path('rusdetail/<int:pk>', rusbuy, name='rusdetail'),
+    path('engdetail/<int:pk>', engbuy, name='engdetail'),
     path('onas', Onas.as_view(), name='onas'),
 
 ]

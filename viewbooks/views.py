@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from viewbooks.models import *
 from .forms import *
-#
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -42,65 +42,59 @@ class Onas(TemplateView):
     template_name ="onas.html" 
 
 ###
-def uzbbuy(request):
-
+def uzbbuy(request, pk):
+    context = {}
+    book = get_object_or_404(UzbBooksModel, pk=pk )
+    context['uzb'] = book
     if request.method == 'POST':
-
-        form = UzBuyerForm(request.POST)
-
+        form = UzBuyerForm(data=request.POST)
         if form.is_valid():
-            # Сохранение формы
+            form = form.save(commit=False)
+            form.kitob = book
+            print(form)
             form.save()
 
-            # Редирект на ту же страницу
-            return HttpResponseRedirect('uzb')
+            return HttpResponseRedirect('/')
     else:
             form = UzBuyerForm()
-            names = UzbBooksModel.objects.all()
-
-
-    
-    return render(request, 'uzbbuy.html', {'form': form, 'names':names})
+    context['form'] = form
+    return render(request, 'uzdetail.html', context)
 
 
 
-def rusbuy(request):
-
+def rusbuy(request, pk):
+    context = {}
+    book = get_object_or_404(RusBooksModel, pk=pk)
+    context['rus'] = book
     if request.method == 'POST':
-
-        form = RusBuyerForm(request.POST)
-
+        form = RusBuyerForm(data=request.POST)
         if form.is_valid():
-            # Сохранение формы
+            form = form.save(commit=False)
+            form.kitob = book
+            print(form)
             form.save()
 
-            # Редирект на ту же страницу
-            return HttpResponseRedirect('rus')
+            return HttpResponseRedirect('/')
     else:
             form = RusBuyerForm()
-            names = RusBooksModel.objects.all()
-
-            
-    return render(request, 'rusbuy.html', {'form': form, 'names':names})
+    context['form'] = form
+    return render(request, 'rusdetail.html', context)
 
 
-
-def engbuy(request):
-
+def engbuy(request, pk):
+    context = {}
+    book = get_object_or_404(EngBooksModel, pk=pk)
+    context['eng'] = book
     if request.method == 'POST':
-
-        form = EngBuyerForm(request.POST)
-
+        form = EngBuyerForm(data=request.POST)
         if form.is_valid():
-            # Сохранение формы
+            form = form.save(commit=False)
+            form.kitob = book
+            print(form)
             form.save()
 
-            # Редирект на ту же страницу
-            return HttpResponseRedirect('eng')
+            return HttpResponseRedirect('/')
     else:
-            
             form = EngBuyerForm()
-            names = EngBooksModel.objects.all()
-
-    
-    return render(request, 'engbuy.html', {'form': form, 'names':names})
+    context['form'] = form
+    return render(request, 'engdetail.html', context)

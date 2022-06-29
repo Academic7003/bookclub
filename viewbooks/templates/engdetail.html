@@ -24,7 +24,13 @@
                                 
                                     <h6 >{% if eng.free %}the book is empty{% else %}idle time:{{eng.b_date}}{% endif %}</h6>
                                 
-                                    {% if eng.free %}<a href="{% url 'books:engbuy' %}">read</a>{% endif %}
+                                    {% if eng.free %}<form action="" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ form.as_p}}
+                                      
+                                    
+                                        <input type="submit" value="Save" />
+                                    </form>{% endif %}
                         </div>
 
 

@@ -27,6 +27,13 @@
                                 
                         </div>
 {% if rus.free  %}
-                        <a href={% url 'books:engbuy' %}>+взять</a>{% endif %}
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p}}
+                          
+                        
+                            <input type="submit" value="Отправить" />
+                        </form>
+                        {% endif %}
 
 {% endblock content %}

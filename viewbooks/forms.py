@@ -6,16 +6,19 @@ class UzBuyerForm(ModelForm):
 
     class Meta:
         model = UzBuyModel
-        fields = '__all__'
+        exclude = ["kitob"]
 
 class RusBuyerForm(ModelForm):
 
     class Meta:
         model = RusBuyModel
-        fields = '__all__'
+        exclude = ["kitob"]
+        
+
 
 class EngBuyerForm(ModelForm):
 
     class Meta:
         model = EngBuyModel
-        fields = '__all__'
+        exclude = ["kitob"]
+        

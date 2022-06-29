@@ -18,7 +18,7 @@ class UzbBooksModel(models.Model):
     body = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
-    free = models.BooleanField()
+    free = models.BooleanField(blank=True, null=True)
 
 
 
@@ -40,7 +40,7 @@ class RusBooksModel(models.Model):
     body = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
-    free = models.BooleanField()
+    free = models.BooleanField(blank=True, null=True)
 
 
 
@@ -61,7 +61,7 @@ class EngBooksModel(models.Model):
     body = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
-    free = models.BooleanField()
+    free = models.BooleanField(blank=True, null=True)
 
     
     @property
@@ -78,7 +78,7 @@ class EngBooksModel(models.Model):
 class UzBuyModel(models.Model):
     tel=models.PositiveBigIntegerField(name="telefon raqam:")
     adres=models.TextField(max_length=255, name="Manzil:")
-    Kitob = models.ForeignKey(UzbBooksModel, on_delete=models.CASCADE , name="Kitob nomi:")
+    kitob = models.ForeignKey(UzbBooksModel, on_delete=models.CASCADE ,  null=True, blank=True)
 
     def __str__(self):
         return str(self.id)
@@ -86,7 +86,7 @@ class UzBuyModel(models.Model):
 class RusBuyModel(models.Model):
     tel=models.PositiveBigIntegerField(name="ваш номер телефон номер:")
     adres=models.TextField(max_length=255, name="Адрес:")
-    Kitob = models.ForeignKey(RusBooksModel, on_delete=models.CASCADE , name="Называния книги:")
+    kitob = models.ForeignKey(RusBooksModel, on_delete=models.CASCADE ,  null=True, blank=True)
 
     def __str__(self):
         return str(self.id)
@@ -94,7 +94,7 @@ class RusBuyModel(models.Model):
 class EngBuyModel(models.Model):
     tel=models.PositiveBigIntegerField(name="telephone number:")
     adres=models.TextField(max_length=255, name="Address:")
-    Kitob = models.ForeignKey(EngBooksModel, on_delete=models.CASCADE , name="The book name:")
+    kitob = models.ForeignKey(EngBooksModel, on_delete=models.CASCADE , null=True, blank=True)
 
     def __str__(self):
         return str(self.id)

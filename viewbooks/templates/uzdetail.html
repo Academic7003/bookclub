@@ -25,6 +25,15 @@
                                     {% if uzb.free %}Kitob bo'sh{% else %}Kitob bo'shash vaqti:{{uzb.b_date}}{% endif %}
                                 
                         </div>
-                        {% if uzb.free %}<a href={% url 'books:uzbbuy' %}>+olish</a>{% endif %}
+                        {% if uzb.free %}
+                            <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p}}
+                          
+                        
+                            <input type="submit" value="Save" />
+                        </form>{% endif %}
+
+
                         
 {% endblock content %}
