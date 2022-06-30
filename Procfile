@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web gunicorn corebook.wsgi:application --log-file -
