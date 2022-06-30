@@ -19,6 +19,8 @@ class UzbBooksModel(models.Model):
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
     free = models.BooleanField(blank=True, null=True)
+    barcode = models.PositiveBigIntegerField(blank=True, null=True)
+
 
 
 
@@ -41,6 +43,7 @@ class RusBooksModel(models.Model):
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
     free = models.BooleanField(blank=True, null=True)
+    barcode = models.PositiveBigIntegerField(blank=True, null=True)
 
 
 
@@ -62,7 +65,7 @@ class EngBooksModel(models.Model):
     image = models.ImageField(upload_to=upload_location, blank=True, null=True)
     b_date = models.DateField(blank=True, null=True)
     free = models.BooleanField(blank=True, null=True)
-
+    barcode = models.PositiveBigIntegerField(blank=True, null=True)
     
     @property
     def imageURL(self):
@@ -76,17 +79,21 @@ class EngBooksModel(models.Model):
         return str(self.title)
 
 class UzBuyModel(models.Model):
-    tel=models.PositiveBigIntegerField(name="telefon raqam:")
+    tel=models.PositiveBigIntegerField()
     adres=models.TextField(max_length=255, name="Manzil:")
     kitob = models.ForeignKey(UzbBooksModel, on_delete=models.CASCADE ,  null=True, blank=True)
+    created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True )
+
 
     def __str__(self):
-        return str(self.id)
+        return str(f"{self.kitob}-{self.tel}-{self.created_time}")
 
 class RusBuyModel(models.Model):
     tel=models.PositiveBigIntegerField(name="ваш номер телефон номер:")
     adres=models.TextField(max_length=255, name="Адрес:")
     kitob = models.ForeignKey(RusBooksModel, on_delete=models.CASCADE ,  null=True, blank=True)
+    created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
 
     def __str__(self):
         return str(self.id)
@@ -95,6 +102,8 @@ class EngBuyModel(models.Model):
     tel=models.PositiveBigIntegerField(name="telephone number:")
     adres=models.TextField(max_length=255, name="Address:")
     kitob = models.ForeignKey(EngBooksModel, on_delete=models.CASCADE , null=True, blank=True)
+    created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
 
     def __str__(self):
         return str(self.id)

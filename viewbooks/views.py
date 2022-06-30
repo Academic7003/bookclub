@@ -1,4 +1,5 @@
 from importlib.resources import contents
+from multiprocessing import context
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from viewbooks.models import *
@@ -98,3 +99,14 @@ def engbuy(request, pk):
             form = EngBuyerForm()
     context['form'] = form
     return render(request, 'engdetail.html', context)
+
+
+class SerachUz(ListView):
+    template_name = "search.html"
+    def get_queryset(self):
+        return UzbBooksModel.objects.filter(barcode = self.request.GET.get("q"))
+
+    def get_context_data(self,*args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context["q"] = self.request.GET.get("q")
+        return context 

@@ -15,10 +15,8 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,900">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <script src="https://kit.fontawesome.com/6fd06bcb63.js" crossorigin="anonymous"></script>
         <!--
-
-        Artcore Template
+            Artcore Template
 		http://www.templatemo.com/preview/templatemo_423_artcore
         -->
         <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %} ">
@@ -27,6 +25,12 @@
         <link rel="stylesheet" href="{% static 'css/templatemo-misc.css' %} ">
         <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
         {% comment %} <script src="{% static 'js/vendor/modernizr-2.6.1-respond-1.1.0.min.js' %}"></script> {% endcomment %}
+        <style>
+            .headerr li::before{
+                display: none !important;
+            }
+        </style>
+    
     </head>
     <body>
 
@@ -34,8 +38,8 @@
         <section id="pageloader">
             <div class="loader-item fa fa-spin colored-border"></div>
         </section> <!-- /#pageloader -->
-
-        <header class="site-header container-fluid">
+        
+        <header class="site-header headerr container-fluid">
             <div class="top-header">
                 <div class="logo col-md-6 col-sm-6">
                     <h1><a href="{% url 'books:uzb' %}"><em>BOOK</em>CLUB<em>.UZ</em></a></h1>
@@ -68,14 +72,6 @@
                     </div> <!-- /.menu-wrapper -->
                 </div> <!-- /.row -->
             </div> <!-- /.main-header -->
-            <div id="responsive-menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Pages</a></li>
-                    {% comment %} <li><a href="contact.html">Contact</a></li> {% endcomment %}
-                </ul>
-            </div>
+
         </header> <!-- /.site-header -->
+                   
