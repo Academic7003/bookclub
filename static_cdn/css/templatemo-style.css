@@ -35,6 +35,9 @@ blockquote,
 q {
   quotes: none;
 }
+.headerr .top-header li::before{
+  display: none !important;
+}
 
 blockquote:before,
 blockquote:after {
