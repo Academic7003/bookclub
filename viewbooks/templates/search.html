@@ -1,9 +1,17 @@
-<div class="input-group">
-    <div class="form-outline">
-      <input action ={% url 'books:search' %} type="search" id="form1" name="q" class="form-control" />
-      <label class="form-label" for="form1">Search</label>
-    </div>
-    <button  type="submit" class="btn btn-primary">
-      <i class="fas fa-search"></i>
-    </button>
-  </div>
+<h1>HomePage</h1>
+ 
+<form action="{% url 'books:search' %}" method="get">
+  <input name="q" type="text" placeholder="Search...">
+</form>
+
+
+  <!-- templates/search_results.html -->
+<h1>Search Results</h1>
+ 
+<ul>
+  {% for city in object_list %}
+    <li>
+      {{ city.title }}
+    </li>
+  {% endfor %}
+</ul>

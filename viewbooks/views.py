@@ -7,7 +7,7 @@ from .forms import *
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
+from django.db.models import Q # новый
 
 class UzBooksView(ListView):
     model = UzbBooksModel
@@ -102,11 +102,11 @@ def engbuy(request, pk):
 
 
 class SerachUz(ListView):
-    template_name = "search.html"
-    def get_queryset(self):
-        return UzbBooksModel.objects.filter(barcode = self.request.GET.get("q"))
-
-    def get_context_data(self,*args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context["q"] = self.request.GET.get("q")
-        return context 
+    model = UzbBooksModel
+    template_name = 'search.html'
+    def get_queryset(self): # новый
+        query = self.request.GET.get('q')
+        object_list = UzbBooksModel.objects.filter(
+            Q(barcode__icontains=query)
+        )
+        return object_list
