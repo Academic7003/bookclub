@@ -101,12 +101,36 @@ def engbuy(request, pk):
     return render(request, 'engdetail.html', context)
 
 
-class SerachUz(ListView):
-    model = UzbBooksModel
-    template_name = 'search.html'
-    def get_queryset(self): # новый
-        query = self.request.GET.get('q')
-        object_list = UzbBooksModel.objects.filter(
-            Q(barcode__icontains=query)
-        )
-        return object_list
+# class SerachUz(ListView):
+#     model = UzbBooksModel
+#     template_name = 'search.html'
+#     def get_queryset(self): # новый
+#         query = self.request.GET.get('q')
+#         if query == None:
+#             object_list = UzbBooksModel.objects.filter(
+#                 Q(barcode__icontains="")
+#             )
+#             return object_list
+#         else:
+#             object_list = UzbBooksModel.objects.filter(
+#                 Q(barcode__icontains=query)
+#             )
+#             return object_list
+
+def search_uz(request):
+    query = request.GET.get('q','')
+    #The empty string handles an empty "request"
+    if query:
+            queryset = (Q(barcode__icontains=query))
+            #I assume "text" is a field in your model
+            #i.e., text = model.TextField()
+            #Use | if searching multiple fields, i.e., 
+            #queryset = (Q(text__icontains=query))|(Q(other__icontains=query))
+            resultuz = UzbBooksModel.objects.filter(queryset).distinct()
+            resultru = RusBooksModel.objects.filter(queryset).distinct()
+            resulten = EngBooksModel.objects.filter(queryset).distinct()
+
+
+    else:
+       results = []
+    return render(request, 'search.html', {'resultuz':resultuz,'resulten':resulten, 'resultru':resultru, 'query':query})

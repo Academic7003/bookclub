@@ -12,6 +12,6 @@ urlpatterns = [
     path('rusdetail/<int:pk>', rusbuy, name='rusdetail'),
     path('engdetail/<int:pk>', engbuy, name='engdetail'),
     path('onas', Onas.as_view(), name='onas'),
-    path('search/', SerachUz.as_view(), name = 'search')
+    path('search/', search_uz, name = 'search')
 
 ]

@@ -66,6 +66,7 @@ class EngBooksModel(models.Model):
     b_date = models.DateField(blank=True, null=True)
     free = models.BooleanField(blank=True, null=True)
     barcode = models.PositiveBigIntegerField(blank=True, null=True)
+    whose = models.TextField(max_length=255,)
     
     @property
     def imageURL(self):
@@ -79,7 +80,7 @@ class EngBooksModel(models.Model):
         return str(self.title)
 
 class UzBuyModel(models.Model):
-    tel=models.PositiveBigIntegerField()
+    tel=models.CharField(max_length=20, null=True, blank=True )
     adres=models.TextField(max_length=255, name="Manzil:")
     kitob = models.ForeignKey(UzbBooksModel, on_delete=models.CASCADE ,  null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True )
@@ -89,21 +90,22 @@ class UzBuyModel(models.Model):
         return str(f"{self.kitob}-{self.tel}-{self.created_time}")
 
 class RusBuyModel(models.Model):
-    tel=models.PositiveBigIntegerField(name="ваш номер телефон номер:")
+    tel=models.CharField(name="ваш номер телефон номер:", max_length=20, null=True, blank=True)
     adres=models.TextField(max_length=255, name="Адрес:")
     kitob = models.ForeignKey(RusBooksModel, on_delete=models.CASCADE ,  null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
 
     def __str__(self):
-        return str(self.id)
+       return str(f"{self.kitob}-{self.tel}-{self.created_time}")
+
 
 class EngBuyModel(models.Model):
-    tel=models.PositiveBigIntegerField(name="telephone number:")
+    tel=models.CharField(name="telephone number:", max_length=20, null=True, blank=True)
     adres=models.TextField(max_length=255, name="Address:")
     kitob = models.ForeignKey(EngBooksModel, on_delete=models.CASCADE , null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
 
     def __str__(self):
-        return str(self.id)
+        return str(f"{self.kitob}-{self.tel}-{self.created_time}")

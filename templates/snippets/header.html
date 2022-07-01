@@ -29,6 +29,9 @@
             .headerr li::before{
                 display: none !important;
             }
+            body{
+                color: black;
+              }
         </style>
     
     </head>
@@ -72,6 +75,13 @@
                     </div> <!-- /.menu-wrapper -->
                 </div> <!-- /.row -->
             </div> <!-- /.main-header -->
+            <div id="responsive-menu">
+                <ul>
+                    <li><a href="{% url 'books:uzb' %}">O'zbek kitoblari</a></li>
+                    <li><a href="{% url 'books:rus' %}">Книги на русском</a></li>
+                    <li><a href="{% url 'books:eng' %}">English books</a></li>
+                </ul>
+            </div>
 
         </header> <!-- /.site-header -->
                    

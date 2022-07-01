@@ -2,21 +2,56 @@
 
 {% block content %}
 
-<h1>HomePage</h1>
- 
-<form action="{% url 'books:search' %}" method="get">
-  <input name="q" type="text" placeholder="Search...">
+<form method='GET' action=".">
+  O'zbek kitoblari orasidan qidirish
+  <input type="text" name="q" placeholder="Search posts"/>
+  <input type="submit"  value="search"/>
 </form>
+<style>
+  .headerr li::before{
+      display: none !important;
+  }
+  body ul li::before{
+    display: none !important;
+}
+body .searchResults{
+  list-style-type: disc !important;
+}
+body{
+  color: black;
+}
+</style>
 
 
-  <!-- templates/search_results.html -->
-<h1>Search Results</h1>
- 
-<ul>
-  {% for city in object_list %}
-    <li>
-      {{ city.title }}
-    </li>
-  {% endfor %}
-</ul>
+{% if query %}
+    {% if resultuz %}
+    <ul class="searchResults list-style-disc">
+    {% for item in resultuz %}
+        <li>{{ item|escape }}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+       <p>O'zbekcha kitob topilmadi</p>
+    {% endif %}
+
+    {% if resultru %}
+    <ul>
+    {% for item in resultru %}
+        <li>{{ item|escape }}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+       <p>topilmadi</p>
+    {% endif %}
+
+    {% if resulten %}
+    <ul class="searchResults">
+    {% for item in resulten %}
+        <li>{{ item|escape }}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+       <p>topilmadi</p>
+    {% endif %}
+{% endif %} 
 {% endblock content %}
