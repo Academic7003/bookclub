@@ -20,6 +20,8 @@ class UzbBooksModel(models.Model):
     b_date = models.DateField(blank=True, null=True)
     free = models.BooleanField(blank=True, null=True)
     barcode = models.PositiveBigIntegerField(blank=True, null=True)
+    whose = models.TextField(max_length=255, blank=True, null=True)
+    user = models.TextField(max_length=255, blank=True, null=True)
 
 
 
@@ -44,7 +46,8 @@ class RusBooksModel(models.Model):
     b_date = models.DateField(blank=True, null=True)
     free = models.BooleanField(blank=True, null=True)
     barcode = models.PositiveBigIntegerField(blank=True, null=True)
-
+    whose = models.TextField(max_length=255, blank=True, null=True)
+    user = models.TextField(max_length=255, blank=True, null=True)
 
 
     @property
@@ -66,8 +69,10 @@ class EngBooksModel(models.Model):
     b_date = models.DateField(blank=True, null=True)
     free = models.BooleanField(blank=True, null=True)
     barcode = models.PositiveBigIntegerField(blank=True, null=True)
-    whose = models.TextField(max_length=255,)
+    whose = models.TextField(max_length=255, blank=True, null=True)
+    user = models.TextField(max_length=255, blank=True, null=True)
     
+
     @property
     def imageURL(self):
         try:
@@ -86,6 +91,7 @@ class UzBuyModel(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True )
 
 
+
     def __str__(self):
         return str(f"{self.kitob}-{self.tel}-{self.created_time}")
 
@@ -94,6 +100,7 @@ class RusBuyModel(models.Model):
     adres=models.TextField(max_length=255, name="Адрес:")
     kitob = models.ForeignKey(RusBooksModel, on_delete=models.CASCADE ,  null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    
 
 
     def __str__(self):

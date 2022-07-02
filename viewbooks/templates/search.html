@@ -3,9 +3,9 @@
 {% block content %}
 
 <form method='GET' action=".">
-  O'zbek kitoblari orasidan qidirish
+
   <input type="text" name="q" placeholder="Search posts"/>
-  <input type="submit"  value="search"/>
+  <input type="submit"  value="🔍"/>
 </form>
 <style>
   .headerr li::before{
@@ -27,7 +27,7 @@ body{
     {% if resultuz %}
     <ul class="searchResults list-style-disc">
     {% for item in resultuz %}
-        <li>{{ item|escape }}</li>
+        <a href= {% url 'books:uzdetail' item.id %}><li>{{ item }}</li></a>
     {% endfor %}
     </ul>
     {% else %}
@@ -37,21 +37,21 @@ body{
     {% if resultru %}
     <ul>
     {% for item in resultru %}
-        <li>{{ item|escape }}</li>
+    <a href= {% url 'books:rusdetail' item.id %} <li>{{ item }}</li></a>
     {% endfor %}
     </ul>
     {% else %}
-       <p>topilmadi</p>
+       <p>не найден</p>
     {% endif %}
 
     {% if resulten %}
     <ul class="searchResults">
     {% for item in resulten %}
-        <li>{{ item|escape }}</li>
+    <a href={% url 'books:engdetail' item.id %} <li>{{ item|escape }}</li></a>
     {% endfor %}
     </ul>
     {% else %}
-       <p>topilmadi</p>
+       <p>Not found</p>
     {% endif %}
 {% endif %} 
 {% endblock content %}

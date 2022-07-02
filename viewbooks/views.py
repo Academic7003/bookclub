@@ -121,16 +121,20 @@ def search_uz(request):
     query = request.GET.get('q','')
     #The empty string handles an empty "request"
     if query:
-            queryset = (Q(barcode__icontains=query))
+            # queryset = (Q(barcode__icontains=query))
             #I assume "text" is a field in your model
             #i.e., text = model.TextField()
             #Use | if searching multiple fields, i.e., 
-            #queryset = (Q(text__icontains=query))|(Q(other__icontains=query))
+            queryset = (Q(barcode__icontains=query))|(Q(title__icontains=query))
             resultuz = UzbBooksModel.objects.filter(queryset).distinct()
             resultru = RusBooksModel.objects.filter(queryset).distinct()
             resulten = EngBooksModel.objects.filter(queryset).distinct()
 
 
     else:
-       results = []
+       resultuz = []
+       resulten = []
+       resultru = []
+
+
     return render(request, 'search.html', {'resultuz':resultuz,'resulten':resulten, 'resultru':resultru, 'query':query})
