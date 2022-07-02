@@ -21,8 +21,14 @@
                             <h2 class="blog-title">{{uzb.title}}</h2>
                             <span class="blog-title"></span>
                             <p>{{uzb.body}}</p>
+                            <p>{{uzb.whose}}</p>
                                
-                                    {% if uzb.free %}Kitob bo'sh{% else %}Kitob bo'shash vaqti:{{uzb.b_date}}{% endif %}
+                                    {% if uzb.free %}Kitob bo'sh
+                                    {% else %}
+                                    Kitob bo'shash vaqti:{{uzb.b_date}}
+                            <p>{{uzb.user}}</p>
+
+                                    {% endif %}
                                 
                         </div>
                     </div>
