@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3r#$%01i+031mqvoq)=*8%b%%tk=5_1cb-a0*txgu9i-vt7+v7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -73,10 +73,10 @@ WSGI_APPLICATION = 'corebook.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbrt9o64bnd8g8',
-        'USER': 'hpmkmoyrlhxyou',
-        'PASSWORD':'d322a59bb1da85e54674a99e884930cb09bd9b621666b6dc4cb0ed371c43b394',
-        'HOST':'ec2-54-157-16-196.compute-1.amazonaws.com',
+        'NAME': 'd4af6q0ghooq1',
+        'USER': 'irjwhapjlotxfy',
+        'PASSWORD':'9bab4b63cdf2c1e7c9fdf95767d7cb667a7e865e3e48d420b5f566c7073641f7',
+        'HOST':'ec2-34-233-115-14.compute-1.amazonaws.com',
         'PORT':'5432'
 
     }
