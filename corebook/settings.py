@@ -1,6 +1,7 @@
 
 import os
 from pathlib import Path
+import django_heroku 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -65,24 +66,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'corebook.wsgi.application'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'media'),
-]
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbrt9o64bnd8g8',
+        'USER': 'hpmkmoyrlhxyou',
+        'PASSWORD':'d322a59bb1da85e54674a99e884930cb09bd9b621666b6dc4cb0ed371c43b394',
+        'HOST':'ec2-54-157-16-196.compute-1.amazonaws.com',
+        'PORT':'5432'
+
     }
 }
-
 
 WHITENOISE_USE_FINDERS = True
 # Password validation
@@ -103,6 +101,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
+]
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+
+django_heroku.settings(locals())
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
