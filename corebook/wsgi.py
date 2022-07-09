@@ -8,6 +8,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'corebook.settings')
 
 application = get_wsgi_application()
 
-application = WhiteNoise(application, root="/static")
+application = WhiteNoise(application, root="/static/")
 application.add_files("/static/")
-#  prefix="more-files/"
+prefix="/more-files/"
