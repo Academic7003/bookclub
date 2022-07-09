@@ -73,9 +73,9 @@ WSGI_APPLICATION = 'corebook.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd4af6q0ghooq1',
-        'USER': 'irjwhapjlotxfy',
-        'PASSWORD':'9bab4b63cdf2c1e7c9fdf95767d7cb667a7e865e3e48d420b5f566c7073641f7',
+        'NAME': 'd287q5og26fpmf',
+        'USER': 'cpyvvcrgffhdug',
+        'PASSWORD':'a5ae010111e23f210b5f19bbc8af04bbb51214a95791f83fc67b0b94fac5a25b',
         'HOST':'ec2-34-233-115-14.compute-1.amazonaws.com',
         'PORT':'5432'
 
