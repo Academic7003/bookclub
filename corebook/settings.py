@@ -19,7 +19,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -29,13 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'viewbooks.apps.ViewbooksConfig',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -73,14 +73,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'myproject',
-        'USER': 'myuser',
-        'PASSWORD': 'nur7003',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password1',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
 
-WHITENOISE_USE_FINDERS = True
+# WHITENOISE_USE_FINDERS = True
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
